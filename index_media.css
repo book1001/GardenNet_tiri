@@ -1,12 +1,16 @@
 @media only screen and (max-width:1477px) {
   h2 {
     font-size: 90px;
+    line-height: 90px;
   }
   #tiri {
     font-size: 800px;
   }
   .center {
     font-size: 40px;
+  }
+  .section-padding {
+    height: 150px;
   }
 }
 
@@ -15,6 +19,7 @@
 
   h2 {
     font-size: 38px;
+    line-height: 40px;
   }
   .center {
     font-size: 28px;
@@ -43,5 +48,8 @@
   }
   .bottom-r {
     display: none;
+  }
+  .section-padding {
+    height: 90px;
   }
 }
