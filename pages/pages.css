@@ -1,0 +1,64 @@
+@font-face {
+  font-family: 'bodyfont';
+  src: url('../font/HelveticaLTStd-Bold.otf') format('opentype');
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+::selection {
+  color: black;
+  background: #00ff00;
+}
+
+::-moz-selection { 
+  color: black;
+  background: #00ff00;
+}
+
+
+body{ 
+  margin:0; 
+  background:black; 
+  display:flex; 
+  flex-direction:column; 
+  align-items: center;
+  height:100vh; 
+  color:white; 
+  font-family: 'bodyfont';
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+video { 
+  width: calc(100% - 30px);
+  padding-top: 15px;
+  flex:1; 
+  object-fit:cover; 
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  background: #00ff00;
+}
+
+h4 { 
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-top: 35px; 
+  padding-bottom: 30px;
+  text-align:center; 
+}
+
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding: 0 15px 15px 15px;
+  text-align: justify;
+}

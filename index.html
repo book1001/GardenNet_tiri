@@ -1,1 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Tiri Kananuruk</title>
 
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="index_media.css">
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+</head>
+
+<body>
+<button id="tiri" onclick="openBody()">GO</button>
+<!-- <button id="tiri" onclick="openBody()">Participant</button> -->
+<div id="info">
+  <div class="top-l">
+    <h2>Tiri Kananuruk</h2>
+  </div>
+  <div class="top-r">
+    <h2>Feb 27, 4:30 PM</h2>
+  </div>
+  <div class="bottom-l">
+    <h2>Boston<br>University</h2>
+  </div>
+  <div class="bottom-r">
+    <h2>Room 410<br>or Zoom</h2>
+  </div>
+
+</div>
+
+<div id="scroll">
+  <div class="center">
+    <div style="height: 220px;"></div>
+    <p data-start="0" data-video="./posters/adams.mp4" data-popup="./pages/adams.html">
+      Adams Staples
+    </p>
+    <p data-start="30" data-video="./posters/aerim.mp4" data-popup="./pages/aerim.html">
+      Aerim Lee
+    </p>
+    <p data-start="1" data-video="./posters/alara.mp4" data-popup="./pages/alara.html">
+      Alara Akalfaza
+    </p>
+    <!-- <p data-start="0" data-video="./posters/chaewon.mp4" data-popup="./pages/chaewon.html">
+      Chaewon Choi
+    </p> -->
+    <p data-start="20" data-video="./posters/haelin.mp4" data-popup="./pages/haelin.html">
+      Haelin Kim
+    </p>
+    <p data-start="0" data-video="./posters/icarus.mp4" data-popup="./pages/icarus.html">
+      Icarus Guo
+    </p>
+    <p data-start="7" data-video="./posters/kitty.mp4" data-popup="./pages/kitty.html">
+      Kitty Lin
+    </p>
+    <p data-start="9" data-video="./posters/lucy.mp4" data-popup="./pages/lucy.html">
+      Lucy Ye
+    </p>
+    <p data-start="9" data-video="./posters/luna.mp4" data-popup="./pages/luna.html">
+      Luna Jing
+    </p>
+    <p data-start="21" data-video="./posters/marga.mp4" data-popup="./pages/marga.html">
+      Marga Gomez-Puche
+    </p>
+    <!-- <p data-start="0" data-video="./posters/megan.mp4" data-popup="./pages/megan.html">
+      Megan Sharon
+    </p> -->
+    <p data-start="2" data-video="./posters/sissi.mp4" data-popup="./pages/sissi.html">
+      Sissi Lin
+    </p> 
+    <p data-start="10" data-video="./posters/yennie.mp4" data-popup="./pages/yennie.html">
+      Yennie Lee
+    </p>
+    <p data-start="14" data-video="./posters/yingxuan.mp4" data-popup="./pages/yingxuan.html">
+      Yingxuan Zhuang
+    </p>
+    <p data-start="7" data-video="./posters/ziyu.mp4" data-popup="./pages/ziyu.html">
+      Ziyu Wang
+    </p>
+  </div>
+
+</div>
+
+<video id="video" autoplay playsinline style="display:none"></video>
+<video id="poster" autoplay playsinline muted></video>
+
+<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="posters.js"></script>
+</body>
+</html>

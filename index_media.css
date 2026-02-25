@@ -1,0 +1,47 @@
+@media only screen and (max-width:1477px) {
+  h2 {
+    font-size: 90px;
+  }
+  #tiri {
+    font-size: 800px;
+  }
+  .center {
+    font-size: 40px;
+  }
+}
+
+
+@media only screen and (max-width:1116px) {
+
+  h2 {
+    font-size: 38px;
+  }
+  .center {
+    font-size: 28px;
+  }
+  /* .top-r {
+    display: none;
+  }
+  .bottom-r {
+    display: none;
+  } */
+}
+
+@media only screen and (max-width:600px) {
+
+  h2 {
+    font-size: 38px;
+  }
+  .center {
+    font-size: 28px;
+  }
+  .top-r {
+    display: none;
+  }
+  .bottom-l {
+    display: none;
+  }
+  .bottom-r {
+    display: none;
+  }
+}

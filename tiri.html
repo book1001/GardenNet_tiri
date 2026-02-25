@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<title>Tiri</title>
+
+<style>
+body{
+  margin:0;
+  background:black;
+  overflow:hidden;
+}
+
+img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* 🔥 미러 처리 */
+.mirror{
+  transform: scaleX(-1);
+}
+</style>
+</head>
+
+<body>
+<img id="img">
+
+<script>
+
+const params = new URLSearchParams(location.search);
+const part = params.get("part");
+const img = document.getElementById("img");
+
+const channel = new BroadcastChannel("body-channel");
+
+// ==========================
+// 오른쪽 팔다리면 미러 적용
+// ==========================
+if(part === "rightArm" || part === "rightLeg" || part==="rightArmExt"){
+  img.classList.add("mirror");
+}
+
+channel.onmessage = (e)=>{
+
+  const state = e.data;
+
+  // ======================
+  // HEAD
+  // ======================
+  if(part==="head"){
+    if(state.headAngle > 0.5)
+      img.src="images/head/center_mouth.png";
+    else if(state.armSpread > 800)
+      img.src="images/head/center_mouth.png";
+    else if(state.headAngle < -0.5)
+      img.src="images/head/center.png";
+    else
+      img.src="images/head/center.png";
+  }
+
+  // ======================
+  // ARMS
+  // leftArm 이미지만 사용
+  // rightArm은 CSS로 미러
+  // ======================
+  if(part==="leftArm" || part==="rightArm"){
+    if(state.armSwing > 150)
+      img.src="images/arms/arm_up.png";
+    else if(state.armSpread > 1000)
+      img.src="images/arms/arm_up.png";
+    else
+      img.src="images/arms/arm.png";
+  }
+
+  // ======================
+  // ARMS EXTENSION
+  // ======================
+  if(part==="leftArmExt" || part==="rightArmExt"){
+    img.src="images/arms/extension.png";
+  }
+
+  // ======================
+  // TORSO
+  // ======================
+  if(part==="torso"){
+    img.src="images/torso/center copy.png";
+  }
+
+  // ======================
+  // LEGS
+  // leftLeg 이미지만 사용
+  // rightLeg은 CSS로 미러
+  // ======================
+  if(part==="legs"){
+    img.src = "images/legs/legs.png";
+  }
+  
+  // ------------------------
+  // 배경색 변경
+  // ------------------------
+  if(state.changeBG){
+    document.body.style.background="#00ff00";
+  } 
+
+};
+
+// ------------------------
+// postMessage 수신 처리
+// ------------------------
+window.addEventListener("message",(e)=>{
+  const state = e.data;
+  if(state.changeBG!==undefined){
+    if(state.changeBG){
+      document.body.style.background="#00ff00";
+    } 
+  }
+});
+
+</script>
+</body>
+</html>
