@@ -31,8 +31,8 @@ html,body {
 body {
   display: flex;
   background:black;
-  background:#00ff00;
-  background: white;
+  /* background:#00ff00;
+  background: white; */
   font-family: 'Impact';
   justify-content: center;
 }
@@ -61,7 +61,7 @@ button:hover {
 
   font-family: 'btn';
   padding-top: 110px;
-  font-size: 990px;
+  font-size: 914px;
   /* font-size: 375px; */
   color:#00ff00;
   cursor: pointer;
@@ -72,14 +72,15 @@ button:hover {
   z-index: 2;
   /* mix-blend-mode: difference; 
   color:white; */
-  /* display: none; */
+  display: none;
+  line-height: 130px;
 }
 
 #scroll {
   z-index: 2;
   mix-blend-mode: difference; 
   color:white;
-  /* display: none; */
+  display: none;
 }
 
 

@@ -30,12 +30,18 @@ function openBody(){
 
   order.forEach(part=>{
     const size = partSizes[part];
+
+    // 현재 브라우저 화면 기준 중앙 계산
+    const left = window.screenX + (window.innerWidth - size.width) / 2;
+    const top = window.screenY + (window.innerHeight - size.height) / 2;
+
     bodyParts[part] = window.open(
-      "tiri.html?part="+part,
+      "tiri.html?part=" + part,
       "_blank",
-      `width=${size.width},height=${size.height}`
+      `width=${size.width},height=${size.height},left=${left},top=${top}`
     );
   });
+
 }
 
 // ------------------
@@ -92,10 +98,10 @@ hands.onResults(results => {
     // ------------------------
     if(angle > 0.5 || distance > 800){
       document.getElementById("tiri").innerText = "Participate";
-      document.getElementById("tiri").style.fontSize = "400px";
+      document.getElementById("tiri").style.fontSize = "375px";
     } else {
-      document.getElementById("tiri").innerText = "Go";
-      document.getElementById("tiri").style.fontSize = "800px";
+      document.getElementById("tiri").innerText = "GO";
+      document.getElementById("tiri").style.fontSize = "914px";
     }
 
     // ------------------------
@@ -166,12 +172,12 @@ hands.onResults(results => {
     }
 
     // index.html 글자 표시 & 배경색
-    const status = document.getElementById("info");
     if(atEdges){
-      info.style.display = "block";
+      document.getElementById("info").style.display = "block";
+      document.getElementById("scroll").style.display = "block";
       document.body.style.background = "white";
-      document.getElementById("tiri").innerText = "Go";
-      document.getElementById("tiri").style.fontSize = "800px";
+      document.getElementById("tiri").innerText = "GO";
+      document.getElementById("tiri").style.fontSize = "914px";
       document.getElementById("tiri").style.pointerEvents = "none";
 
       // 모든 팝업에도 메시지 전송
