@@ -61,7 +61,8 @@ button:hover {
 
   font-family: 'btn';
   padding-top: 110px;
-  font-size: 914px;
+  /* font-size: 914px; */
+  font-size: 930px;
   /* font-size: 375px; */
   color:#00ff00;
   cursor: pointer;

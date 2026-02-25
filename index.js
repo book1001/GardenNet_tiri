@@ -101,7 +101,7 @@ hands.onResults(results => {
       document.getElementById("tiri").style.fontSize = "375px";
     } else {
       document.getElementById("tiri").innerText = "GO";
-      document.getElementById("tiri").style.fontSize = "914px";
+      document.getElementById("tiri").style.fontSize = "930px";
     }
 
     // ------------------------
@@ -177,7 +177,7 @@ hands.onResults(results => {
       document.getElementById("scroll").style.display = "block";
       document.body.style.background = "white";
       document.getElementById("tiri").innerText = "GO";
-      document.getElementById("tiri").style.fontSize = "914px";
+      document.getElementById("tiri").style.fontSize = "930px";
       document.getElementById("tiri").style.pointerEvents = "none";
 
       // 모든 팝업에도 메시지 전송
