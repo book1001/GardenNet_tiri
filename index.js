@@ -2,7 +2,7 @@ let bodyParts = {};
 let channel = new BroadcastChannel("body-channel");
 
 // ------------------
-// 각 부위별 팝업 크기
+// Popup sizes
 // ------------------
 const partSizes = {
   head: {width:200, height:233},
@@ -15,8 +15,7 @@ const partSizes = {
 };
 
 // ------------------
-// 팝업 생성
-// 순서: arms/legs → torso → head
+// Popup order
 // ------------------
 function openBody(){
 
@@ -31,7 +30,6 @@ function openBody(){
   order.forEach(part=>{
     const size = partSizes[part];
 
-    // 현재 브라우저 화면 기준 중앙 계산
     const left = window.screenX + (window.innerWidth - size.width) / 2;
     const top = window.screenY + (window.innerHeight - size.height) / 2;
 
@@ -66,9 +64,6 @@ hands.onResults(results => {
 
   if(results.multiHandLandmarks.length === 2){
 
-    // ------------------------
-    // 왼손 / 오른손 판별
-    // ------------------------
     let leftHand, rightHand;
     results.multiHandedness.forEach((hand, i)=>{
       if(hand.label === "Left") leftHand = results.multiHandLandmarks[i];
@@ -89,12 +84,9 @@ hands.onResults(results => {
     const distance = Math.abs(dx);
     const dy = yRight - yLeft;
 
-    // 머리 각도
     const angle = Math.atan2(dy, dx);
     const swing = Math.abs(yLeft - yRight);
 
-    // ------------------------
-    // 조건 만족 시 버튼 텍스트 변경
     // ------------------------
     if(angle > 0.5 || distance > 800){
       document.getElementById("tiri").innerText = "Participate";
@@ -105,7 +97,7 @@ hands.onResults(results => {
     }
 
     // ------------------------
-    // TORSO 기준
+    // TORSO
     // ------------------------
     if(bodyParts.torso){
       const s = partSizes.torso;
@@ -139,7 +131,7 @@ hands.onResults(results => {
     }
 
     // ------------------------
-    // ARM EXTENSIONS (가로축을 torso 쪽으로 이동)
+    // ARM EXTENSION
     // ------------------------
     if(bodyParts.leftArmExt){
       const s = partSizes.leftArmExt;
@@ -162,16 +154,16 @@ hands.onResults(results => {
     }
 
     // ------------------------
-    // 화면 끝 감지
+    // at Edges
     // ------------------------
-    const threshold = 50; // 완화: 50px 안쪽이면 끝에 닿은 것으로 판단
+    const threshold = 50;
     let atEdges = false;
 
     if(xLeft < threshold || xRight > window.innerWidth - threshold){
       atEdges = true;
     }
 
-    // index.html 글자 표시 & 배경색
+    // index.html
     if(atEdges){
       document.getElementById("info").style.display = "block";
       document.getElementById("scroll").style.display = "block";
@@ -180,14 +172,13 @@ hands.onResults(results => {
       document.getElementById("tiri").style.fontSize = "930px";
       document.getElementById("tiri").style.pointerEvents = "none";
 
-      // 모든 팝업에도 메시지 전송
+      // popup.html
       Object.values(bodyParts).forEach(popup=>{
         if(popup && !popup.closed) popup.postMessage({changeBG:true},"*");
       });
 
     } 
 
-    // 상태 전달 (팝업 이미지용)
     channel.postMessage({
       headAngle: angle,
       armSpread: distance,
@@ -248,7 +239,6 @@ paragraphs.forEach(p => {
     const width = 900;
     const height = 600;
 
-    // 현재 화면 기준 중앙 계산
     const left = window.screenX + (window.innerWidth - width) / 2;
     const top = window.screenY + (window.innerHeight - height) / 2;
 

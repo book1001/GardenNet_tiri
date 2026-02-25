@@ -5,12 +5,12 @@
 
 @font-face {
   font-family: 'btn';
-  src: url('./font/FuturaStd-Medium.otf') format('truetype');
+  src: url('./font/FuturaStd-Medium.otf') format('opentype');
 }
 
 @font-face {
   font-family: 'btn2';
-  src: url('./font/FuturaStd-Heavy.otf') format('truetype');
+  src: url('./font/FuturaStd-Heavy.otf') format('opentype');
 }
 
 @font-face {

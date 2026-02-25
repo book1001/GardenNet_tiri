@@ -37,7 +37,6 @@ paragraphs.forEach(p => {
     const width = 900;
     const height = 600;
 
-    // 현재 화면 기준 중앙 계산
     const left = window.screenX + (window.innerWidth - width) / 2;
     const top = window.screenY + (window.innerHeight - height) / 2;
 

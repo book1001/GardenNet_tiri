@@ -19,7 +19,6 @@ img{
   object-fit:cover;
 }
 
-/* 🔥 미러 처리 */
 .mirror{
   transform: scaleX(-1);
 }
@@ -38,7 +37,7 @@ const img = document.getElementById("img");
 const channel = new BroadcastChannel("body-channel");
 
 // ==========================
-// 오른쪽 팔다리면 미러 적용
+// mirror
 // ==========================
 if(part === "rightArm" || part === "rightLeg" || part==="rightArmExt"){
   img.classList.add("mirror");
@@ -64,8 +63,6 @@ channel.onmessage = (e)=>{
 
   // ======================
   // ARMS
-  // leftArm 이미지만 사용
-  // rightArm은 CSS로 미러
   // ======================
   if(part==="leftArm" || part==="rightArm"){
     if(state.armSwing > 150)
@@ -92,15 +89,13 @@ channel.onmessage = (e)=>{
 
   // ======================
   // LEGS
-  // leftLeg 이미지만 사용
-  // rightLeg은 CSS로 미러
   // ======================
   if(part==="legs"){
     img.src = "images/legs/legs.png";
   }
   
   // ------------------------
-  // 배경색 변경
+  // bg color change
   // ------------------------
   if(state.changeBG){
     document.body.style.background="#00ff00";
@@ -109,7 +104,7 @@ channel.onmessage = (e)=>{
 };
 
 // ------------------------
-// postMessage 수신 처리
+// postMessage
 // ------------------------
 window.addEventListener("message",(e)=>{
   const state = e.data;
